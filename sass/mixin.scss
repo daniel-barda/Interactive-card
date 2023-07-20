@@ -1,0 +1,19 @@
+@mixin respond($bg-point) {
+  @if ($bg-point == bg-1410px) {
+    @media screen and (max-width: 88.125em) {
+      @content;
+    }
+  }
+
+  @if ($bg-point == bg-1119px) {
+    @media screen and (max-width: 69.93em) {
+      @content;
+    }
+  }
+
+  @if ($bg-point == bg-500px) {
+    @media screen and (max-width: 31.25em) {
+      @content;
+    }
+  }
+}

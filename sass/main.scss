@@ -1,0 +1,324 @@
+@import "mixin.scss";
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Very-dark-violet: hsl(278, 68%, 11%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(bg-1119px) {
+    font-size: 50%;
+  }
+
+  @include respond(bg-1119px) {
+    font-size: 40%;
+  }
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  min-height: 100vh;
+  max-width: 100%;
+
+  @include respond(bg-1119px) {
+    flex-direction: column;
+  }
+
+  &__img {
+    &--front {
+      transform: translateX(8rem);
+    }
+
+    &--back {
+      transform: translateX(16rem);
+    }
+
+    &--card-logo {
+      position: absolute;
+      top: 10%;
+      left: 23%;
+    }
+
+    // media query
+    @include respond(bg-1410px) {
+      &--front {
+        transform: translateX(0);
+      }
+
+      &--back {
+        transform: translateX(0);
+      }
+
+      &--card-logo {
+        left: 5%;
+      }
+    }
+
+    @include respond(bg-1119px) {
+      &--front {
+        width: 80%;
+        position: relative;
+        z-index: 1;
+        transform: translate(6%, 147%);
+      }
+
+      &--back {
+        width: 80%;
+        transform: translate(35%, -29%);
+      }
+
+      &--card-logo {
+        top: 152%;
+        left: 9%;
+        z-index: 2;
+      }
+    }
+
+    @include respond(bg-500px) {
+      &--front {
+        width: 50%;
+      }
+
+      &--back {
+        width: 50%;
+      }
+
+      &--card-logo {
+        width: 10%;
+        left: 7%;
+      }
+    }
+  }
+
+  &__left {
+    background-image: url("../images/bg-main-desktop.png");
+    background-size: cover;
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 3rem;
+
+    @include respond(bg-1119px) {
+      background-image: url("../images/bg-main-mobile.png");
+      flex-basis: 100%;
+      align-items: start;
+      justify-content: end;
+    }
+  }
+
+  &__right {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(bg-1119px) {
+      padding: 4rem;
+    }
+  }
+}
+
+// credit Card
+.creditCard {
+  color: var(--White);
+
+  &--front,
+  &--back {
+    position: relative;
+  }
+
+  &__Number {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+
+    font-size: 2rem;
+    letter-spacing: 4px;
+    font-weight: 500;
+
+    @include respond(bg-1410px) {
+      left: 20%;
+    }
+
+    @include respond(bg-1119px) {
+      top: 192%;
+      left: 17%;
+      font-size: 2rem;
+      z-index: 2;
+    }
+
+    @include respond(bg-500px) {
+      left: 6%;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__details {
+    font-size: 1.6rem;
+    width: 75%;
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    top: 82%;
+    left: 34%;
+    justify-content: space-between;
+
+    @include respond(bg-1410px) {
+      left: 15%;
+    }
+
+    @include respond(bg-1119px) {
+      top: 222%;
+      left: 15%;
+      font-size: 1.8rem;
+      z-index: 2;
+      width: 65%;
+    }
+
+    @include respond(bg-500px) {
+      left: 6%;
+      font-size: 1.4rem;
+      width: 41%;
+    }
+  }
+
+  &__sec {
+    position: absolute;
+    top: 44%;
+    right: -22%;
+
+    @include respond(bg-1410px) {
+      right: 15%;
+    }
+
+    @include respond(bg-1119px) {
+      top: 15%;
+      right: 4%;
+      font-size: 2rem;
+      z-index: 2;
+    }
+
+    @include respond(bg-500px) {
+      right: 40%;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__group {
+    label {
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      color: var(--Very-dark-violet);
+      letter-spacing: 2px;
+
+      @include respond(bg-500px) {
+        font-size: 1.6rem;
+      }
+    }
+
+    input {
+      border: 1px solid var(--Light-grayish-violet);
+      padding: 1.5rem 2rem;
+      border-radius: 9px;
+      width: 100%;
+
+      &:focus {
+        outline: 2px solid var(--Dark-grayish-violet);
+      }
+
+      &::placeholder {
+        font-size: 1.8rem;
+        font-family: inherit;
+        color: var(--Dark-grayish-violet);
+      }
+    }
+
+    &:nth-child(3) {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .date {
+        flex-basis: 40%;
+
+        &__inputs {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+
+      .cvc {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.btn {
+  border: none;
+  background-color: var(--Very-dark-violet);
+  color: var(--White);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: translateY(-0.8rem);
+  }
+
+  &--lg {
+    width: 100% !important;
+  }
+}
+
+// thank
+
+.thank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  font-weight: 300;
+  letter-spacing: 3px;
+
+  &-header {
+    color: var(--Very-dark-violet);
+    text-transform: uppercase;
+  }
+
+  &-message {
+    color: var(--Light-grayish-violet);
+  }
+}

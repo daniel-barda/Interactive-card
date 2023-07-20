@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="sass/main.css" />
+    <script src="script.js" defer></script>
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="content__left">
+        <!-- front credit Card -->
+        <div class="creditCard creditCard--front">
+          <img
+            src="images/bg-card-front.png"
+            alt="bg-card-front"
+            class="content__img--front"
+          />
+
+          <img
+            src="images/card-logo.svg"
+            alt="card logo"
+            class="content__img--card-logo"
+          />
+
+          <!-- Number credit Card -->
+          <p class="creditCard__Number">0000 0000 0000 0000</p>
+
+          <!-- details credit Card -->
+          <div class="creditCard__details">
+            <p class="creditCard__details--fullName">Daniel Barda</p>
+            <p class="creditCard__details--date">
+              <span class="date--mm">09</span>
+              <span> / </span>
+              <span class="date--yy">26</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- back credit Card -->
+        <div class="creditCard creditCard--back">
+          <img
+            src="images/bg-card-back.png"
+            alt="bg-card-back"
+            class="content__img--back"
+          />
+
+          <div class="creditCard__sec">123</div>
+        </div>
+      </div>
+
+      <div class="content__right">
+        <form class="form">
+          <div class="form__group">
+            <label for="fullName">cardholder name</label>
+            <input
+              type="text"
+              name="fullName"
+              id="fullName"
+              maxlength="24"
+              placeholder="e.g Jane Appleseed"
+              required
+            />
+          </div>
+
+          <div class="form__group">
+            <label for="number">cardnumber name</label>
+            <input
+              type="text"
+              name="number"
+              id="number"
+              placeholder="e.g. 124 5678 9123 0000"
+              minlength="16"
+              maxlength="16"
+              required
+            />
+          </div>
+
+          <!-- last child form__group -->
+          <div class="form__group">
+            <!-- date -->
+            <div class="date">
+              <label for="date">EXP. DATE (MM/YY)</label>
+
+              <div class="date__inputs">
+                <input
+                  type="text"
+                  name="date--mm"
+                  id="date"
+                  placeholder="MM"
+                  maxlength="2"
+                  required
+                />
+                <input
+                  type="text"
+                  name="date--yy"
+                  id="date"
+                  placeholder="YY"
+                  maxlength="2"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- cvc -->
+            <div class="cvc">
+              <label for="cvc">CVC</label>
+              <input
+                type="text"
+                name="cvc"
+                id="cvc"
+                maxlength="3"
+                placeholder="e.g. 123"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="btn">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
